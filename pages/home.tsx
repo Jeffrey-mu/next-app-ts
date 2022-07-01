@@ -3,8 +3,9 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import MH from "../components/main-head";
 import MF from "../components/main-foot";
+console.log(MH);
 
-const Index: NextPage = () => {
+const Home: NextPage = () => {
   return (
     <div className={styles.container}>
       <Head>
@@ -13,7 +14,7 @@ const Index: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <MH name="index"></MH>
+        <MH name="home"></MH>
 
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
@@ -51,4 +52,4 @@ const Index: NextPage = () => {
   );
 };
 
-export default Index;
+export default Home;

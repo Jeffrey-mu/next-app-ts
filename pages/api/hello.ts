@@ -4,7 +4,9 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 type Data = {
   name: string
 }
-
+export function getData () {
+  return ''
+}
 export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
