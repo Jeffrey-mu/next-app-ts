@@ -1,5 +1,5 @@
 import { FC } from "react";
-import styles from "../../styles/Home.module.css";
+import styles from "../styles/Home.module.css";
 import { useState } from "react";
 
 interface Props {
