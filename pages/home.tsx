@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
-import Head from "next/head";
 import styles from "../styles/Home.module.css";
+import Head from "next/head";
 import MH from "../components/main-head";
 import MF from "../components/main-foot";
 console.log(MH);
@@ -14,36 +14,35 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <MH name="home"></MH>
+        <MH name="基本特性"></MH>
 
         <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+          <h2>页面 Pages</h2>
+          <p>在 Next.js 中，一个 page（页面） 就是一个从 .js、jsx、.ts 或 .tsx 文件导出（export）的 React 组件 ，这些文件存放在 pages 目录下。每个 page（页面）都使用其文件名作为路由（route）。
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+          </p>
+          <p>示例： 如果你创建了一个命名为 pages/about.js 的文件并导出（export）一个如下所示的 React 组件，则可以通过 /about 路径进行访问。</p>
+          <img width={600} src="about.png" alt="" />
+          &nbsp;&nbsp;
+          <a href="./about">go about!</a>
+          <h2>具有动态路由的页面</h2>
+          <p>
+            Next.js 支持具有动态路由的 pages（页面）。例如，如果你创建了一个命名为 pages/posts/[id].js 的文件，那么就可以通过 <a href="./posts/1">/posts/1</a>、<a href="./posts/2">/posts/2</a> 等类似的路径进行访问。</p>
+          <h2>预渲染</h2>
+          <p>默认情况下，Next.js 将 预渲染 每个 page（页面）。这意味着 Next.js 会预先为每个页面生成 HTML 文件，而不是由客户端 JavaScript 来完成。预渲染可以带来更好的性能和 SEO 效果。
+            每个生成的 HTML 文件都与该页面所需的最少 JavaScript 代码相关联。当浏览器加载一个 page（页面）时，其 JavaScript 代码将运行并使页面完全具有交互性。（此过程称为 水合（hydration）。）</p>
+          <h2>需要获取数据的静态生成</h2>
+          <p>
+            某些页面需要获取外部数据以进行预渲染。有两种情况，一种或两种都可能适用。在每种情况下，你都可以使用 Next.js 所提供的以下函数：
+            <br />
+            1.您的页面 内容 取决于外部数据：使用 getStaticProps。
+            <br />
+            2.你的页面 paths（路径） 取决于外部数据：使用 getStaticPaths （通常还要同时使用 getStaticProps）。
+          </p>
+          <h3>场景 1： 页面 内容 取决于外部数据
+          </h3>
+          <p>要在预渲染时获取此数据，Next.js 允许你从同一文件 export（导出） 一个名为 getStaticProps 的 async（异步） 函数。该函数在构建时被调用，并允许你在预渲染时将获取的数据作为 props 参数传递给页面。</p>
+          <a href="./blog">blog</a>
         </div>
       </main>
 
